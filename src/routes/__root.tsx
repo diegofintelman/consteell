@@ -75,6 +75,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Consteell" },
       { name: "author", content: "Consteell" },
       { name: "theme-color", content: "#0f0f1a" },
+      { property: "og:title", content: "Consteell" },
+      { name: "twitter:title", content: "Consteell" },
+      { name: "description", content: "Consteell: O Futuro em Aço is a corporate website for lead generation." },
+      { property: "og:description", content: "Consteell: O Futuro em Aço is a corporate website for lead generation." },
+      { name: "twitter:description", content: "Consteell: O Futuro em Aço is a corporate website for lead generation." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8c024f40-fa88-4c6f-b49a-9adb3cb67cb9/id-preview-e90b6f58--83fa17fa-c90f-4914-aa30-a1eeb7705a96.lovable.app-1778093497135.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8c024f40-fa88-4c6f-b49a-9adb3cb67cb9/id-preview-e90b6f58--83fa17fa-c90f-4914-aa30-a1eeb7705a96.lovable.app-1778093497135.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       {
