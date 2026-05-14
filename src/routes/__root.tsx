@@ -9,22 +9,58 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { WhatsappFloat } from "@/components/WhatsappFloat";
+
+const SITE_URL = "https://consteell.lovable.app";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Consteell",
+  description:
+    "Especialista em telhado em steel frame, estruturas galvanizadas, calhas, rufos e fachadas.",
+  telephone: "+5515998151587",
+  url: SITE_URL,
+  sameAs: ["https://www.instagram.com/consteell_/"],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Tatuí",
+    addressRegion: "SP",
+    addressCountry: "BR",
+  },
+  areaServed: [
+    "Tatuí",
+    "Itapetininga",
+    "Sorocaba",
+    "Cerquilho",
+    "Tietê",
+    "Boituva",
+    "Capão Bonito",
+    "Itararé",
+    "Avaré",
+  ],
+  openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-12:00"],
+};
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#0a0e1a] px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <h1 className="font-display text-7xl font-bold text-steel-gradient">404</h1>
+        <h2 className="mt-4 font-display text-xl font-semibold uppercase tracking-wider text-white">
+          Página não encontrada
+        </h2>
+        <p className="mt-2 text-sm text-gray-400">
+          A página que você procura não existe ou foi movida.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center border border-[#c8d0dc] px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-[#c8d0dc] transition-all hover:bg-[#c8d0dc] hover:text-[#0a0e1a]"
           >
-            Go home
+            Voltar ao início
           </Link>
         </div>
       </div>
@@ -37,29 +73,29 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#0a0e1a] px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+        <h1 className="font-display text-xl font-semibold uppercase tracking-wider text-white">
+          A página não carregou
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+        <p className="mt-2 text-sm text-gray-400">
+          Algo deu errado. Tente novamente ou volte ao início.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="bg-white px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-[#0a0e1a]"
           >
-            Try again
+            Tentar novamente
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="border border-[#c8d0dc] px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-[#c8d0dc] hover:bg-[#c8d0dc] hover:text-[#0a0e1a]"
           >
-            Go home
+            Início
           </a>
         </div>
       </div>
@@ -72,23 +108,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Consteell" },
+      { title: "Consteell | Steel Frame, Calhas, Rufos e Fachadas — Tatuí/SP" },
       { name: "author", content: "Consteell" },
-      { name: "theme-color", content: "#0f0f1a" },
-      { property: "og:title", content: "Consteell" },
-      { name: "twitter:title", content: "Consteell" },
-      { name: "description", content: "Consteell: O Futuro em Aço is a corporate website for lead generation." },
-      { property: "og:description", content: "Consteell: O Futuro em Aço is a corporate website for lead generation." },
-      { name: "twitter:description", content: "Consteell: O Futuro em Aço is a corporate website for lead generation." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8c024f40-fa88-4c6f-b49a-9adb3cb67cb9/id-preview-e90b6f58--83fa17fa-c90f-4914-aa30-a1eeb7705a96.lovable.app-1778093497135.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/8c024f40-fa88-4c6f-b49a-9adb3cb67cb9/id-preview-e90b6f58--83fa17fa-c90f-4914-aa30-a1eeb7705a96.lovable.app-1778093497135.png" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#0a0e1a" },
+      { name: "robots", content: "index, follow" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Consteell" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(jsonLd),
       },
     ],
   }),
@@ -100,7 +139,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
@@ -117,7 +156,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="min-h-screen bg-[#0a0e1a] text-[#f0f4f8]">
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+        <WhatsappFloat />
+      </div>
     </QueryClientProvider>
   );
 }
