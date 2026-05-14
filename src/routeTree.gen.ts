@@ -9,8 +9,44 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SteelFrameRouteImport } from './routes/steel-frame'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as ObrasRouteImport } from './routes/obras'
+import { Route as FachadasRouteImport } from './routes/fachadas'
+import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as CalhasRufosRouteImport } from './routes/calhas-rufos'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SteelFrameRoute = SteelFrameRouteImport.update({
+  id: '/steel-frame',
+  path: '/steel-frame',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObrasRoute = ObrasRouteImport.update({
+  id: '/obras',
+  path: '/obras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FachadasRoute = FachadasRouteImport.update({
+  id: '/fachadas',
+  path: '/fachadas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContatoRoute = ContatoRouteImport.update({
+  id: '/contato',
+  path: '/contato',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CalhasRufosRoute = CalhasRufosRouteImport.update({
+  id: '/calhas-rufos',
+  path: '/calhas-rufos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +55,116 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/calhas-rufos': typeof CalhasRufosRoute
+  '/contato': typeof ContatoRoute
+  '/fachadas': typeof FachadasRoute
+  '/obras': typeof ObrasRoute
+  '/sobre': typeof SobreRoute
+  '/steel-frame': typeof SteelFrameRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/calhas-rufos': typeof CalhasRufosRoute
+  '/contato': typeof ContatoRoute
+  '/fachadas': typeof FachadasRoute
+  '/obras': typeof ObrasRoute
+  '/sobre': typeof SobreRoute
+  '/steel-frame': typeof SteelFrameRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/calhas-rufos': typeof CalhasRufosRoute
+  '/contato': typeof ContatoRoute
+  '/fachadas': typeof FachadasRoute
+  '/obras': typeof ObrasRoute
+  '/sobre': typeof SobreRoute
+  '/steel-frame': typeof SteelFrameRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/calhas-rufos'
+    | '/contato'
+    | '/fachadas'
+    | '/obras'
+    | '/sobre'
+    | '/steel-frame'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/calhas-rufos'
+    | '/contato'
+    | '/fachadas'
+    | '/obras'
+    | '/sobre'
+    | '/steel-frame'
+  id:
+    | '__root__'
+    | '/'
+    | '/calhas-rufos'
+    | '/contato'
+    | '/fachadas'
+    | '/obras'
+    | '/sobre'
+    | '/steel-frame'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CalhasRufosRoute: typeof CalhasRufosRoute
+  ContatoRoute: typeof ContatoRoute
+  FachadasRoute: typeof FachadasRoute
+  ObrasRoute: typeof ObrasRoute
+  SobreRoute: typeof SobreRoute
+  SteelFrameRoute: typeof SteelFrameRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/steel-frame': {
+      id: '/steel-frame'
+      path: '/steel-frame'
+      fullPath: '/steel-frame'
+      preLoaderRoute: typeof SteelFrameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/obras': {
+      id: '/obras'
+      path: '/obras'
+      fullPath: '/obras'
+      preLoaderRoute: typeof ObrasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fachadas': {
+      id: '/fachadas'
+      path: '/fachadas'
+      fullPath: '/fachadas'
+      preLoaderRoute: typeof FachadasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contato': {
+      id: '/contato'
+      path: '/contato'
+      fullPath: '/contato'
+      preLoaderRoute: typeof ContatoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/calhas-rufos': {
+      id: '/calhas-rufos'
+      path: '/calhas-rufos'
+      fullPath: '/calhas-rufos'
+      preLoaderRoute: typeof CalhasRufosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +177,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CalhasRufosRoute: CalhasRufosRoute,
+  ContatoRoute: ContatoRoute,
+  FachadasRoute: FachadasRoute,
+  ObrasRoute: ObrasRoute,
+  SobreRoute: SobreRoute,
+  SteelFrameRoute: SteelFrameRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
