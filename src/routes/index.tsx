@@ -41,12 +41,12 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Consteell | Telhado em Steel Frame, Calhas, Rufos e Fachadas — Tatuí/SP",
+          "Consteell | Telhado em Steel Frame, Calhas, Rufos e Fachadas — Sorocaba/SP",
       },
       {
         name: "description",
         content:
-          "Soluções sob medida em telhado em steel frame, calhas, rufos e fachadas. Execução técnica, acabamento profissional e orçamento pelo WhatsApp. Atendemos Tatuí e interior de SP.",
+          "Soluções sob medida em telhado em steel frame, calhas, rufos e fachadas. Execução técnica, acabamento profissional e orçamento pelo WhatsApp. Atendemos Sorocaba e região.",
       },
       {
         property: "og:title",
@@ -151,7 +151,7 @@ function HomePage() {
             { icon: Wrench, t: "Obras sob Medida", s: "Projetos adaptados à necessidade de cada cliente" },
             { icon: Settings, t: "Execução Técnica", s: "Instalação com planejamento e precisão técnica" },
             { icon: Phone, t: "Atendimento Direto", s: "Orçamento claro do início ao fim" },
-            { icon: MapPin, t: "Região Interior SP", s: "Tatuí e cidades da região" },
+            { icon: MapPin, t: "Sorocaba e Região", s: "Atendimento em toda a região metropolitana" },
           ].map(({ icon: Icon, t, s }) => (
             <div key={t} className="bg-authority px-6 py-8 text-center">
               <Icon className="mx-auto h-7 w-7 text-[#c8d0dc]" />
@@ -500,7 +500,7 @@ function HomePage() {
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { img: hero1, tag: "Steel Frame", c: "Tatuí/SP", d: "Cobertura residencial sob medida com perfis galvanizados." },
+              { img: hero1, tag: "Steel Frame", c: "Votorantim/SP", d: "Cobertura residencial sob medida com perfis galvanizados." },
               { img: hero2, tag: "Calhas", c: "Sorocaba/SP", d: "Captação e escoamento para galpão industrial." },
               { img: hero3, tag: "Steel Frame", c: "Itapetininga/SP", d: "Estrutura metálica para ampliação comercial." },
               { img: hero4, tag: "Rufos", c: "Cerquilho/SP", d: "Proteção entre telhado e parede em obra residencial." },

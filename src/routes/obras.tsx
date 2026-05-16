@@ -35,7 +35,7 @@ const filters = ["Todos", "Steel Frame", "Calhas e Rufos", "Fachadas"] as const;
 type Filter = (typeof filters)[number];
 
 const obras = [
-  { img: hero1, tag: "Steel Frame", c: "Tatuí/SP", desafio: "Cobertura residencial com vão amplo.", solucao: "Estrutura sob medida em perfis galvanizados." },
+  { img: hero1, tag: "Steel Frame", c: "Sorocaba/SP", desafio: "Cobertura residencial com vão amplo.", solucao: "Estrutura sob medida em perfis galvanizados." },
   { img: hero2, tag: "Calhas e Rufos", c: "Sorocaba/SP", desafio: "Galpão com escoamento ineficiente.", solucao: "Calha de cocho dimensionada e condutores reforçados." },
   { img: hero3, tag: "Steel Frame", c: "Itapetininga/SP", desafio: "Ampliação comercial com prazo curto.", solucao: "Steel frame pré-dimensionado e montagem rápida." },
   { img: hero4, tag: "Calhas e Rufos", c: "Cerquilho/SP", desafio: "Infiltração entre telhado e platibanda.", solucao: "Rufos sob medida e pingadeiras de proteção." },

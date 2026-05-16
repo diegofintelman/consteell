@@ -8,11 +8,11 @@ const SITE_URL = "https://consteell.lovable.app";
 export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
-      { title: "Sobre a Consteell | Steel Frame, Calhas e Fachadas — Tatuí/SP" },
+      { title: "Sobre a Consteell | Steel Frame, Calhas e Fachadas — Sorocaba/SP" },
       {
         name: "description",
         content:
-          "Conheça a Consteell: soluções técnicas para telhados, calhas, rufos e fachadas com execução sob medida e acabamento profissional na região de Tatuí/SP.",
+          "Conheça a Consteell: soluções técnicas para telhados, calhas, rufos e fachadas com execução sob medida e acabamento profissional na região de Sorocaba/SP e cidades vizinhas.",
       },
       { property: "og:title", content: "Sobre a Consteell" },
       {
@@ -62,7 +62,7 @@ function SobrePage() {
             {
               icon: Users,
               t: "Quem Atendemos",
-              d: "Construtoras, engenheiros, arquitetos, condomínios, comércios, indústrias e proprietários de imóveis na região de Tatuí e interior de SP.",
+              d: "Construtoras, engenheiros, arquitetos, condomínios, comércios, indústrias e proprietários de imóveis em Sorocaba e toda a região.",
             },
           ].map(({ icon: Icon, t, d }) => (
             <div

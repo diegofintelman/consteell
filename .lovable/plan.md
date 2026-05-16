@@ -1,20 +1,35 @@
 ## Objetivo
-Deixar a logo da Consteell maior e mais visível no header, mantendo a altura atual da navbar inalterada.
+Trocar a sede da empresa de **Tatuí/SP** para **Sorocaba/SP** em todo o site, e ajustar o discurso de cobertura para "Sorocaba e região".
 
-## Como
-A logo hoje está em `src/components/Header.tsx` com `h-10 md:h-12` dentro de um `<header>` que tem padding vertical `py-5` (topo) / `py-3` (scrolled). Esse padding define a altura da navbar — se eu só aumentar a `h-` da imagem, a navbar cresce junto.
+## Alterações
 
-Solução: permitir que a logo "estoure" verticalmente o padding do header sem empurrar os outros elementos, usando uma altura maior na imagem + `my-[-Xpx]` (margem negativa vertical) para compensar. A altura efetiva do header continua determinada pelo botão/menu ao lado, que mantém o mesmo tamanho.
+### 1. `src/routes/__root.tsx` (JSON-LD + meta)
+- `addressLocality`: `"Tatuí"` → `"Sorocaba"`.
+- `areaServed`: reordenar com Sorocaba primeiro e remover Tatuí da lista. Lista final sugerida: `["Sorocaba", "Votorantim", "Itu", "Salto", "Itapetininga", "Cerquilho", "Tietê", "Boituva", "Capão Bonito", "Tatuí", "São Roque", "Araçoiaba da Serra"]` — manter cidades historicamente da região metropolitana de Sorocaba; manter Tatuí como atendida (não é a sede, mas faz parte da região).
+- Title/og:title/twitter:title: `— Tatuí/SP` → `— Sorocaba/SP`.
 
-### Alterações em `src/components/Header.tsx`
-- Trocar `h-10 w-auto md:h-12` da `<img>` por algo como `h-14 md:h-16 w-auto -my-2 md:-my-3`.
-- Aplicar a mesma altura maior no logo do drawer mobile (consistência visual).
-- Garantir que o container do link (`<Link>`) não imponha `overflow-hidden` (não impõe hoje).
+### 2. Títulos e descrições das páginas
+- `src/routes/steel-frame.tsx` (linha 12): `Tatuí/SP` → `Sorocaba/SP`.
+- `src/routes/fachadas.tsx` (linha 11): `Tatuí/SP` → `Sorocaba/SP`.
+- `src/routes/sobre.tsx` (linhas 11, 15, 65): `Tatuí/SP` / `Tatuí e interior de SP` → `Sorocaba/SP` / `Sorocaba e região`.
+- `src/routes/contato.tsx` (linhas 24, 217): `Tatuí e região` / `Tatuí e interior de SP` → `Sorocaba e região`.
+- `src/routes/index.tsx`:
+  - linha 44: title `Tatuí/SP` → `Sorocaba/SP`.
+  - linha 49: description `Atendemos Tatuí e interior de SP.` → `Atendemos Sorocaba e região.`
+  - linha 154: card MapPin `t: "Região Interior SP", s: "Tatuí e cidades da região"` → `t: "Sorocaba e região", s: "Atendimento em toda a RMS"`.
 
-### Verificação
-- Screenshot em mobile (375px), tablet (768px) e desktop (1280px) — estado topo e estado "scrolled".
-- Confirmar visualmente que a altura total do header não mudou (comparar com o estado anterior) e que a logo aparece nitidamente maior.
+### 3. Portfólio de obras (cidades fictícias nos cards)
+Manter diversidade de cidades, apenas trocar a entrada "Tatuí/SP" por uma cidade da região de Sorocaba para reforçar o posicionamento:
+- `src/routes/index.tsx` linha 503: `Tatuí/SP` → `Sorocaba/SP` (ou `Votorantim/SP`).
+- `src/routes/obras.tsx` linha 38: idem.
+
+### 4. `src/components/Footer.tsx`
+- Linha 82: `Tatuí/SP — Interior de SP` → `Sorocaba/SP — Região Metropolitana`.
+- Linha 112: `Steel Frame · Tatuí · SP` → `Steel Frame · Sorocaba · SP`.
 
 ## Fora de escopo
-- Nenhuma mudança em cores, fontes, links de navegação ou outras páginas.
-- Sem regerar o arquivo da logo.
+- Telefone, e-mail, links de WhatsApp, layout, cores e demais conteúdos permanecem inalterados.
+- Imagens de obras não mudam.
+
+## Verificação
+- `rg -i "tatuí|tatui"` ao final para confirmar que só restam ocorrências intencionais (eventual menção de Tatuí na lista `areaServed`, se mantida).

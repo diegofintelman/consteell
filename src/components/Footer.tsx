@@ -79,7 +79,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 text-[#c8d0dc]" />
-                Tatuí/SP — Interior de SP
+                Sorocaba/SP — Região Metropolitana
               </li>
               <li>
                 <a
@@ -109,7 +109,7 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-[#2d3748] pt-6 text-xs text-gray-500 sm:flex-row">
           <p>© 2025 Consteell. Todos os direitos reservados.</p>
-          <p className="uppercase tracking-[0.2em]">Steel Frame · Tatuí · SP</p>
+          <p className="uppercase tracking-[0.2em]">Steel Frame · Sorocaba · SP</p>
         </div>
       </div>
     </footer>
