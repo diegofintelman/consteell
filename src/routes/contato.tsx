@@ -21,7 +21,7 @@ export const Route = createFileRoute("/contato")({
       {
         name: "description",
         content:
-          "Fale com a Consteell. Atendimento direto pelo WhatsApp para orçamento de telhado em steel frame, calhas, rufos e fachadas em Tatuí e região.",
+          "Fale com a Consteell. Atendimento direto pelo WhatsApp para orçamento de telhado em steel frame, calhas, rufos e fachadas em Sorocaba e região.",
       },
       { property: "og:title", content: "Fale com a Consteell" },
       {
@@ -214,7 +214,7 @@ Solicitação: ${form.mensagem}`,
             <ContactCard
               icon={MapPin}
               label="Região atendida"
-              value="Tatuí e interior de SP"
+              value="Sorocaba e região"
             />
             <ContactCard
               icon={Clock}
