@@ -9,7 +9,7 @@ const SITE_URL = "https://consteell.lovable.app";
 export const Route = createFileRoute("/steel-frame")({
   head: () => ({
     meta: [
-      { title: "Telhado em Steel Frame sob Medida | Consteell — Tatuí/SP" },
+      { title: "Telhado em Steel Frame sob Medida | Consteell — Sorocaba/SP" },
       {
         name: "description",
         content:

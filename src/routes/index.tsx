@@ -41,7 +41,7 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "Consteell | Telhado em Steel Frame, Calhas, Rufos e Fachadas — Tatuí/SP",
+          "Consteell | Telhado em Steel Frame, Calhas, Rufos e Fachadas — Sorocaba/SP",
       },
       {
         name: "description",
@@ -500,7 +500,7 @@ function HomePage() {
 
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { img: hero1, tag: "Steel Frame", c: "Tatuí/SP", d: "Cobertura residencial sob medida com perfis galvanizados." },
+              { img: hero1, tag: "Steel Frame", c: "Sorocaba/SP", d: "Cobertura residencial sob medida com perfis galvanizados." },
               { img: hero2, tag: "Calhas", c: "Sorocaba/SP", d: "Captação e escoamento para galpão industrial." },
               { img: hero3, tag: "Steel Frame", c: "Itapetininga/SP", d: "Estrutura metálica para ampliação comercial." },
               { img: hero4, tag: "Rufos", c: "Cerquilho/SP", d: "Proteção entre telhado e parede em obra residencial." },

@@ -8,7 +8,7 @@ const SITE_URL = "https://consteell.lovable.app";
 export const Route = createFileRoute("/fachadas")({
   head: () => ({
     meta: [
-      { title: "Fachadas com Acabamento Profissional | Consteell — Tatuí/SP" },
+      { title: "Fachadas com Acabamento Profissional | Consteell — Sorocaba/SP" },
       {
         name: "description",
         content:
