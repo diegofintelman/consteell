@@ -98,7 +98,7 @@ function HomePage() {
               <span className="h-px w-10 bg-[#c8d0dc]" />
             </div>
 
-            <h1 className="mt-6 font-display text-3xl font-bold uppercase leading-[1.05] tracking-wide text-steel-gradient sm:text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="mt-6 font-display text-3xl font-bold uppercase leading-[1.05] tracking-wide text-steel-gradient sm:text-4xl md:text-5xl">
               Telhados, Calhas, Rufos e Fachadas com Execução Técnica e Acabamento Profissional
             </h1>
 
