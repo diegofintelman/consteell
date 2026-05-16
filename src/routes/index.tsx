@@ -73,7 +73,7 @@ function HomePage() {
       {/* HERO */}
       <section
         id="top"
-        className="relative h-screen min-h-[640px] overflow-hidden"
+        className="relative flex min-h-screen items-center overflow-hidden py-32 lg:py-28"
       >
         {slides.map((src, i) => (
           <div
@@ -88,8 +88,8 @@ function HomePage() {
         <div className="absolute inset-0 bg-hero-overlay" />
         <div className="absolute inset-0 bg-diagonal-lines opacity-60" />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 lg:px-8">
-          <div className="max-w-2xl pt-20">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl items-center px-5 lg:px-8">
+          <div className="max-w-2xl">
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-[#c8d0dc]" />
               <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#8c98a8] md:text-xs">
@@ -98,7 +98,7 @@ function HomePage() {
               <span className="h-px w-10 bg-[#c8d0dc]" />
             </div>
 
-            <h1 className="mt-6 font-display text-3xl font-bold uppercase leading-[1.05] tracking-wide text-steel-gradient sm:text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="mt-6 font-display text-3xl font-bold uppercase leading-[1.05] tracking-wide text-steel-gradient sm:text-4xl md:text-5xl">
               Telhados, Calhas, Rufos e Fachadas com Execução Técnica e Acabamento Profissional
             </h1>
 
