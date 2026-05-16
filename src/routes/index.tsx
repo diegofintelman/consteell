@@ -73,7 +73,7 @@ function HomePage() {
       {/* HERO */}
       <section
         id="top"
-        className="relative h-screen min-h-[640px] overflow-hidden"
+        className="relative flex min-h-screen items-center overflow-hidden py-32 lg:py-28"
       >
         {slides.map((src, i) => (
           <div
