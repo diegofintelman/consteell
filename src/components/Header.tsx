@@ -37,7 +37,7 @@ export function Header() {
           <img
             src={logo}
             alt="Consteell"
-            className="h-10 w-auto md:h-12"
+            className="h-16 w-auto -my-3 md:h-20 md:-my-5"
             width={1280}
             height={512}
           />
@@ -94,7 +94,7 @@ export function Header() {
           }`}
         >
           <div className="flex items-center justify-between">
-            <img src={logo} alt="Consteell" className="h-10 w-auto" />
+            <img src={logo} alt="Consteell" className="h-14 w-auto" />
             <button onClick={() => setOpen(false)} aria-label="Fechar menu">
               <X className="h-6 w-6 text-[#c8d0dc]" />
             </button>
