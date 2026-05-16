@@ -88,8 +88,8 @@ function HomePage() {
         <div className="absolute inset-0 bg-hero-overlay" />
         <div className="absolute inset-0 bg-diagonal-lines opacity-60" />
 
-        <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 lg:px-8">
-          <div className="max-w-2xl pt-20">
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl items-center px-5 lg:px-8">
+          <div className="max-w-2xl">
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-[#c8d0dc]" />
               <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#8c98a8] md:text-xs">
