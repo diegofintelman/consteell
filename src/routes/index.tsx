@@ -117,7 +117,7 @@ function HomePage() {
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a
-                href="https://wa.me/5515998151587"
+                href="https://wa.me/5515998151587?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 bg-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[#0a0e1a] transition-all hover:bg-[#c8d0dc]"
