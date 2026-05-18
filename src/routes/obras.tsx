@@ -37,7 +37,7 @@ type Filter = (typeof filters)[number];
 const obras = [
   { img: hero1, tag: "Steel Frame", c: "Sorocaba/SP", desafio: "Cobertura residencial com vão amplo.", solucao: "Estrutura sob medida em perfis galvanizados." },
   { img: hero2, tag: "Calhas e Rufos", c: "Sorocaba/SP", desafio: "Galpão com escoamento ineficiente.", solucao: "Calha de cocho dimensionada e condutores reforçados." },
-  { img: hero3, tag: "Steel Frame", c: "Itapetininga/SP", desafio: "Ampliação comercial com prazo curto.", solucao: "Steel frame pré-dimensionado e montagem rápida." },
+  { img: hero3, tag: "Steel Frame", c: "Salto/SP", desafio: "Ampliação comercial com prazo curto.", solucao: "Steel frame pré-dimensionado e montagem rápida." },
   { img: hero4, tag: "Calhas e Rufos", c: "Cerquilho/SP", desafio: "Infiltração entre telhado e platibanda.", solucao: "Rufos sob medida e pingadeiras de proteção." },
   { img: hero5, tag: "Fachadas", c: "Boituva/SP", desafio: "Frente comercial sem identidade.", solucao: "Acabamento externo com painéis metálicos." },
   { img: hero1, tag: "Steel Frame", c: "Tietê/SP", desafio: "Cobertura para empreendimento comercial.", solucao: "Perfis galvanizados com instalação técnica." },
