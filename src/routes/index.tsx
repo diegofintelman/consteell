@@ -505,7 +505,7 @@ function HomePage() {
               { img: hero3, tag: "Steel Frame", c: "Salto/SP", d: "Estrutura metálica para ampliação comercial." },
               { img: hero4, tag: "Rufos", c: "Itu/SP", d: "Proteção entre telhado e parede em obra residencial." },
               { img: hero5, tag: "Fachada", c: "Boituva/SP", d: "Acabamento externo com painéis metálicos." },
-              { img: hero1, tag: "Steel Frame", c: "Tietê/SP", d: "Cobertura para empreendimento comercial." },
+              { img: hero1, tag: "Steel Frame", c: "Alumínio", d: "Cobertura para empreendimento comercial." },
             ].map((o, i) => (
               <article
                 key={i}
