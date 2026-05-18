@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MessageCircle } from "lucide-react";
+import { Loader2, MessageCircle } from "lucide-react";
 
 interface CtaWhatsappProps {
   title: string;
@@ -7,12 +7,19 @@ interface CtaWhatsappProps {
   buttonLabel?: string;
 }
 
-function maskPhone(v: string) {
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbz-jb_vdFx-cRoPNfwIfnQB83G3OLa8sj9asvwd6yv_gR1fJZgH5ZbSiGHsdXAjOZqA/exec";
+
+// Máscara (DD) XXXXX-XXXX — sem o +55 (prefixo é visual e fixo)
+function maskPhoneBR(v: string) {
   const d = v.replace(/\D/g, "").slice(0, 11);
-  if (d.length <= 2) return d;
+  if (d.length === 0) return "";
+  if (d.length <= 2) return `(${d}`;
   if (d.length <= 7) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
   return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
 }
+
+type Status = "idle" | "loading" | "success" | "error";
 
 export function CtaWhatsapp({
   title,
@@ -20,27 +27,60 @@ export function CtaWhatsapp({
   buttonLabel = "Enviar e Falar no WhatsApp",
 }: CtaWhatsappProps) {
   const [form, setForm] = useState({ nome: "", telefone: "", endereco: "" });
+  const [status, setStatus] = useState<Status>("idle");
 
   const update = (k: keyof typeof form, v: string) =>
-    setForm((s) => ({ ...s, [k]: k === "telefone" ? maskPhone(v) : v }));
+    setForm((s) => ({ ...s, [k]: k === "telefone" ? maskPhoneBR(v) : v }));
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (status === "loading") return;
+
     const nome = form.nome.trim().slice(0, 100);
-    const telefone = form.telefone.trim().slice(0, 20);
+    const telefoneFmt = form.telefone.trim(); // (DD) XXXXX-XXXX
     const endereco = form.endereco.trim().slice(0, 200);
-    if (!nome || !telefone || !endereco) return;
+    const digits = telefoneFmt.replace(/\D/g, "");
+
+    if (!nome || digits.length < 10 || !endereco) {
+      setStatus("error");
+      return;
+    }
+
+    const telefoneFinal = `+55 ${telefoneFmt}`; // +55 (DD) XXXXX-XXXX
+
+    setStatus("loading");
+
+    const payload = {
+      Nome: nome,
+      Telefone: telefoneFinal,
+      "Endereço": endereco,
+    };
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
+      });
+      setStatus("success");
+    } catch (err) {
+      console.warn("Falha no envio do lead:", err);
+      setStatus("error");
+    }
 
     const msg =
       `Olá, vim do site e gostaria de um orçamento.\n` +
       `Nome: ${nome}\n` +
-      `Telefone: ${telefone}\n` +
+      `Telefone: ${telefoneFinal}\n` +
       `Endereço do serviço: ${endereco}`;
-    window.open(
-      `https://wa.me/5515998151587?text=${encodeURIComponent(msg)}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+    setTimeout(() => {
+      window.open(
+        `https://wa.me/5515998151587?text=${encodeURIComponent(msg)}`,
+        "_blank",
+        "noopener,noreferrer",
+      );
+    }, 800);
   };
 
   return (
@@ -83,17 +123,27 @@ export function CtaWhatsapp({
               placeholder="Seu nome completo"
             />
           </Field>
+
           <Field label="Telefone / WhatsApp *">
-            <input
-              required
-              inputMode="tel"
-              maxLength={20}
-              value={form.telefone}
-              onChange={(e) => update("telefone", e.target.value)}
-              className="cta-input"
-              placeholder="(15) 99999-9999"
-            />
+            <div className="flex items-stretch">
+              <span
+                aria-hidden="true"
+                className="inline-flex select-none items-center border border-r-0 border-[#2d3748] bg-[#1a2236] px-3 text-sm font-semibold text-[#c8d0dc]"
+              >
+                +55
+              </span>
+              <input
+                required
+                inputMode="tel"
+                maxLength={16}
+                value={form.telefone}
+                onChange={(e) => update("telefone", e.target.value)}
+                className="cta-input"
+                placeholder="(15) 99999-9999"
+              />
+            </div>
           </Field>
+
           <Field label="Endereço do local do serviço *">
             <input
               required
@@ -107,11 +157,27 @@ export function CtaWhatsapp({
 
           <button
             type="submit"
-            className="mt-2 inline-flex items-center justify-center gap-3 bg-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[#0a0e1a] transition-transform hover:scale-[1.02] md:text-sm"
+            disabled={status === "loading"}
+            className="mt-2 inline-flex items-center justify-center gap-3 bg-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] text-[#0a0e1a] transition-transform hover:scale-[1.02] disabled:opacity-70 md:text-sm"
           >
-            <MessageCircle className="h-5 w-5" />
-            {buttonLabel}
+            {status === "loading" ? (
+              <Loader2 className="h-5 w-5 animate-spin" />
+            ) : (
+              <MessageCircle className="h-5 w-5" />
+            )}
+            {status === "loading" ? "Enviando…" : buttonLabel}
           </button>
+
+          {status === "success" && (
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
+              Enviado! Abrindo o WhatsApp…
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-red-400">
+              Verifique os campos e tente novamente.
+            </p>
+          )}
 
           <style>{`
             .cta-input {
