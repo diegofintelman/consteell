@@ -8,7 +8,7 @@ interface CtaWhatsappProps {
 }
 
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwvEF7pHu2vV3bb_563_Kve8OgwxhtjYrLhFn7EVKHXykwBBN2ymU-ioz_YR1lYL8sF/exec";
+  "https://script.google.com/macros/s/AKfycbxPvx9ZUyrRMZIf6XcoUUz-puB_WE5Azb5vUQGO3Wh7PJqsp6L3JlFyx-enKRV8iqTT/exec";
 
 // Máscara (DD) XXXXX-XXXX — sem o +55 (prefixo é visual e fixo)
 function maskPhoneBR(v: string) {
