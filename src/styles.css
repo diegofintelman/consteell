@@ -39,6 +39,7 @@
   --animate-pulse-soft: pulseSoft 2.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
   --animate-fade-up: fadeUp 0.8s ease-out forwards;
   --animate-bounce-slow: bounceSlow 2.4s ease-in-out infinite;
+  --animate-marquee: marquee 45s linear infinite;
 }
 
 :root {
@@ -160,4 +161,9 @@
 @keyframes bounceSlow {
   0%, 100% { transform: translateY(0); opacity: 0.6; }
   50% { transform: translateY(8px); opacity: 1; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
