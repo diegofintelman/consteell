@@ -25,60 +25,62 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0a0e1a]/95 backdrop-blur-md py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
-        <Link to="/" className="flex items-center" aria-label="Consteell">
-          <img
-            src={logo}
-            alt="Consteell"
-            className="h-16 w-auto -my-3 md:h-20 md:-my-5"
-            width={1280}
-            height={512}
-          />
-        </Link>
-
-        <ul className="hidden items-center gap-7 xl:flex">
-          {links.map((l) => (
-            <li key={l.to}>
-              <Link
-                to={l.to}
-                activeProps={{ className: "text-white" }}
-                activeOptions={{ exact: true }}
-                className="text-xs font-medium uppercase tracking-[0.18em] text-[#c8d0dc] transition-colors hover:text-white"
-              >
-                {l.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="hidden items-center xl:flex">
-          <Link
-            to="/contato"
-            className="border border-[#c8d0dc] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.18em] text-[#c8d0dc] transition-all hover:bg-[#c8d0dc] hover:text-[#0a0e1a]"
-          >
-            Solicitar Orçamento
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
+          scrolled
+            ? "bg-[#0a0e1a]/95 backdrop-blur-md py-3"
+            : "bg-transparent py-5"
+        }`}
+      >
+        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8">
+          <Link to="/" className="flex items-center" aria-label="Consteell">
+            <img
+              src={logo}
+              alt="Consteell"
+              className="h-16 w-auto -my-3 md:h-20 md:-my-5"
+              width={1280}
+              height={512}
+            />
           </Link>
-        </div>
 
-        <button
-          onClick={() => setOpen(true)}
-          aria-label="Abrir menu"
-          className="text-[#c8d0dc] xl:hidden"
-        >
-          <Menu className="h-7 w-7" />
-        </button>
-      </nav>
+          <ul className="hidden items-center gap-7 xl:flex">
+            {links.map((l) => (
+              <li key={l.to}>
+                <Link
+                  to={l.to}
+                  activeProps={{ className: "text-white" }}
+                  activeOptions={{ exact: true }}
+                  className="text-xs font-medium uppercase tracking-[0.18em] text-[#c8d0dc] transition-colors hover:text-white"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-      {scrolled && <div className="divider-steel absolute inset-x-0 bottom-0" />}
+          <div className="hidden items-center xl:flex">
+            <Link
+              to="/contato"
+              className="border border-[#c8d0dc] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.18em] text-[#c8d0dc] transition-all hover:bg-[#c8d0dc] hover:text-[#0a0e1a]"
+            >
+              Solicitar Orçamento
+            </Link>
+          </div>
 
-      {/* Mobile drawer */}
+          <button
+            onClick={() => setOpen(true)}
+            aria-label="Abrir menu"
+            className="text-[#c8d0dc] xl:hidden"
+          >
+            <Menu className="h-7 w-7" />
+          </button>
+        </nav>
+
+        {scrolled && <div className="divider-steel absolute inset-x-0 bottom-0" />}
+      </header>
+
+      {/* Mobile drawer — rendered outside header to escape backdrop-filter containing block */}
       <div
         className={`fixed inset-0 z-50 transition-opacity xl:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
@@ -127,6 +129,6 @@ export function Header() {
           </ul>
         </aside>
       </div>
-    </header>
+    </>
   );
 }
