@@ -88,6 +88,37 @@ function SobrePage() {
       </section>
 
       <section className="bg-[#0a0e1a] py-20">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 md:grid-cols-2 lg:px-8">
+          {[
+            {
+              icon: Target,
+              t: "Missão",
+              d: "Oferecer soluções em estruturas metálicas e acessórios galvanizados com qualidade, segurança e eficiência, garantindo durabilidade, acabamento profissional e satisfação aos nossos clientes em cada projeto realizado.",
+            },
+            {
+              icon: Eye,
+              t: "Visão",
+              d: "Ser referência no Estado de São Paulo no segmento de estruturas metálicas e coberturas em aço leve, destacando-se pela excelência, inovação, compromisso e confiança construída junto aos nossos clientes e parceiros.",
+            },
+          ].map(({ icon: Icon, t, d }) => (
+            <div
+              key={t}
+              className="border border-[#2d3748] bg-[#111827] p-8 transition-all hover:border-[#c8d0dc]/40 hover:bg-card-hover"
+            >
+              <Icon className="h-8 w-8 text-[#c8d0dc]" />
+              <h3 className="mt-5 font-display text-lg font-bold uppercase tracking-wider text-white">
+                {t}
+              </h3>
+              <div className="mt-3 h-px w-10 bg-[#c8d0dc]/40" />
+              <p className="mt-4 text-sm leading-relaxed text-gray-400">{d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+
+
+      <section className="bg-[#0a0e1a] py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="text-center">
             <h2 className="font-display text-3xl font-bold uppercase tracking-wide text-steel-gradient md:text-4xl">
