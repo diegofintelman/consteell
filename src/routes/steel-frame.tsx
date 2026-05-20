@@ -2,7 +2,39 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { CtaWhatsapp } from "@/components/CtaWhatsapp";
 import { Check, Home, Building, Factory, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import residencial1 from "@/assets/steel-frame/residencial-1.jpg";
+import residencial2 from "@/assets/steel-frame/residencial-2.jpg";
+import residencial3 from "@/assets/steel-frame/residencial-3.jpg";
+import residencial4 from "@/assets/steel-frame/residencial-4.jpg";
+import residencial5 from "@/assets/steel-frame/residencial-5.jpg";
+import comercial1 from "@/assets/steel-frame/comercial-1.jpg";
+import comercial2 from "@/assets/steel-frame/comercial-2.jpg";
+import comercial3 from "@/assets/steel-frame/comercial-3.jpg";
+import industrial1 from "@/assets/steel-frame/industrial-1.jpg";
+import industrial2 from "@/assets/steel-frame/industrial-2.jpg";
+
+const aplicacoes = [
+  {
+    icon: Home,
+    t: "Residencial",
+    d: "Cobertura para casas, sobrados e ampliações.",
+    imgs: [residencial1, residencial2, residencial3, residencial4, residencial5],
+  },
+  {
+    icon: Building,
+    t: "Comercial",
+    d: "Lojas, escritórios, salões e empreendimentos.",
+    imgs: [comercial1, comercial2, comercial3],
+  },
+  {
+    icon: Factory,
+    t: "Industrial",
+    d: "Galpões, depósitos e parques industriais.",
+    imgs: [industrial1, industrial2],
+  },
+];
+
 
 const SITE_URL = "https://consteell.lovable.app";
 
