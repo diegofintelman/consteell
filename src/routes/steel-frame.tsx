@@ -2,7 +2,39 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { CtaWhatsapp } from "@/components/CtaWhatsapp";
 import { Check, Home, Building, Factory, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import residencial1 from "@/assets/steel-frame/residencial-1.jpg";
+import residencial2 from "@/assets/steel-frame/residencial-2.jpg";
+import residencial3 from "@/assets/steel-frame/residencial-3.jpg";
+import residencial4 from "@/assets/steel-frame/residencial-4.jpg";
+import residencial5 from "@/assets/steel-frame/residencial-5.jpg";
+import comercial1 from "@/assets/steel-frame/comercial-1.jpg";
+import comercial2 from "@/assets/steel-frame/comercial-2.jpg";
+import comercial3 from "@/assets/steel-frame/comercial-3.jpg";
+import industrial1 from "@/assets/steel-frame/industrial-1.jpg";
+import industrial2 from "@/assets/steel-frame/industrial-2.jpg";
+
+const aplicacoes = [
+  {
+    icon: Home,
+    t: "Residencial",
+    d: "Cobertura para casas, sobrados e ampliações.",
+    imgs: [residencial1, residencial2, residencial3, residencial4, residencial5],
+  },
+  {
+    icon: Building,
+    t: "Comercial",
+    d: "Lojas, escritórios, salões e empreendimentos.",
+    imgs: [comercial1, comercial2, comercial3],
+  },
+  {
+    icon: Factory,
+    t: "Industrial",
+    d: "Galpões, depósitos e parques industriais.",
+    imgs: [industrial1, industrial2],
+  },
+];
+
 
 const SITE_URL = "https://consteell.lovable.app";
 
@@ -124,20 +156,19 @@ function SteelFramePage() {
             <div className="divider-steel mx-auto mt-6 w-24" />
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-3">
-            {[
-              { icon: Home, t: "Residencial", d: "Cobertura para casas, sobrados e ampliações." },
-              { icon: Building, t: "Comercial", d: "Lojas, escritórios, salões e empreendimentos." },
-              { icon: Factory, t: "Industrial", d: "Galpões, depósitos e parques industriais." },
-            ].map(({ icon: Icon, t, d }) => (
+            {aplicacoes.map(({ icon: Icon, t, d, imgs }) => (
               <div
                 key={t}
-                className="border border-[#2d3748] bg-[#0a0e1a] p-8 text-center transition-all hover:border-[#c8d0dc]/40 hover:bg-card-hover"
+                className="group flex flex-col overflow-hidden border border-[#2d3748] bg-[#0a0e1a] transition-all hover:border-[#c8d0dc]/40"
               >
-                <Icon className="mx-auto h-10 w-10 text-[#c8d0dc]" />
-                <h3 className="mt-5 font-display text-lg font-bold uppercase tracking-wider text-white">
-                  {t}
-                </h3>
-                <p className="mt-3 text-sm text-gray-400">{d}</p>
+                <ImageCarousel images={imgs} alt={t} />
+                <div className="p-8 text-center">
+                  <Icon className="mx-auto h-10 w-10 text-[#c8d0dc]" />
+                  <h3 className="mt-5 font-display text-lg font-bold uppercase tracking-wider text-white">
+                    {t}
+                  </h3>
+                  <p className="mt-3 text-sm text-gray-400">{d}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -191,6 +222,31 @@ function FaqItem({ q, a }: { q: string; a: string }) {
           {a}
         </div>
       )}
+    </div>
+  );
+}
+
+function ImageCarousel({ images, alt }: { images: string[]; alt: string }) {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const id = setInterval(() => setIdx((i) => (i + 1) % images.length), 3500);
+    return () => clearInterval(id);
+  }, [images.length]);
+  return (
+    <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#111827]">
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={`${alt} ${i + 1}`}
+          loading="lazy"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            i === idx ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a]/60 via-transparent to-transparent" />
     </div>
   );
 }
