@@ -156,20 +156,19 @@ function SteelFramePage() {
             <div className="divider-steel mx-auto mt-6 w-24" />
           </div>
           <div className="mt-14 grid gap-6 sm:grid-cols-3">
-            {[
-              { icon: Home, t: "Residencial", d: "Cobertura para casas, sobrados e ampliações." },
-              { icon: Building, t: "Comercial", d: "Lojas, escritórios, salões e empreendimentos." },
-              { icon: Factory, t: "Industrial", d: "Galpões, depósitos e parques industriais." },
-            ].map(({ icon: Icon, t, d }) => (
+            {aplicacoes.map(({ icon: Icon, t, d, imgs }) => (
               <div
                 key={t}
-                className="border border-[#2d3748] bg-[#0a0e1a] p-8 text-center transition-all hover:border-[#c8d0dc]/40 hover:bg-card-hover"
+                className="group flex flex-col overflow-hidden border border-[#2d3748] bg-[#0a0e1a] transition-all hover:border-[#c8d0dc]/40"
               >
-                <Icon className="mx-auto h-10 w-10 text-[#c8d0dc]" />
-                <h3 className="mt-5 font-display text-lg font-bold uppercase tracking-wider text-white">
-                  {t}
-                </h3>
-                <p className="mt-3 text-sm text-gray-400">{d}</p>
+                <ImageCarousel images={imgs} alt={t} />
+                <div className="p-8 text-center">
+                  <Icon className="mx-auto h-10 w-10 text-[#c8d0dc]" />
+                  <h3 className="mt-5 font-display text-lg font-bold uppercase tracking-wider text-white">
+                    {t}
+                  </h3>
+                  <p className="mt-3 text-sm text-gray-400">{d}</p>
+                </div>
               </div>
             ))}
           </div>
