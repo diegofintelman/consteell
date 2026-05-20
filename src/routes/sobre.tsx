@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { CtaWhatsapp } from "@/components/CtaWhatsapp";
-import { Compass, Target, Users } from "lucide-react";
+import { Compass, Target, Users, Eye } from "lucide-react";
 
 const SITE_URL = "https://consteell.lovable.app";
 
@@ -32,16 +32,23 @@ function SobrePage() {
       <PageHero
         crumb="Sobre"
         title="Sobre a Consteell"
-        subtitle="Soluções técnicas para obras que exigem resistência, proteção e acabamento."
+        subtitle="Há mais de 10 anos fabricando e instalando estruturas galvanizadas de alto padrão para telhados em aço leve."
       />
 
       <section className="bg-[#0a0e1a] py-20">
         <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
           <p className="text-base leading-relaxed text-gray-300 md:text-lg">
-            A Consteell nasceu para atender obras que precisam de soluções bem
-            executadas em telhados, calhas, rufos e fachadas. Nosso trabalho une
-            análise prática, fabricação sob medida e instalação cuidadosa para
-            entregar mais segurança, durabilidade e valorização ao imóvel.
+            Há mais de 10 anos no mercado, a Consteell é especializada na
+            fabricação e instalação de estruturas e acessórios galvanizados para
+            telhados em aço leve. Reconhecida pela qualidade, compromisso e
+            excelência em cada projeto, tornou-se referência no segmento em
+            Sorocaba e região, atendendo clientes em todo o Estado de São Paulo
+            com soluções modernas, resistentes e de alto padrão. Trabalhamos com
+            foco em durabilidade, segurança e acabamento profissional —
+            oferecendo soluções sob medida para obras residenciais, comerciais e
+            industriais, unindo experiência, tecnologia e mão de obra qualificada
+            para entregar estruturas metálicas com máxima eficiência e
+            confiabilidade.
           </p>
         </div>
       </section>
@@ -52,17 +59,17 @@ function SobrePage() {
             {
               icon: Compass,
               t: "Nossa Atuação",
-              d: "Atendimento técnico em telhados, estruturas metálicas, escoamento de águas pluviais e acabamentos de fachada para obras de qualquer porte.",
+              d: "Fabricação e instalação de estruturas e acessórios galvanizados para telhados em aço leve, com soluções sob medida para obras residenciais, comerciais e industriais em todo o Estado de São Paulo.",
             },
             {
               icon: Target,
               t: "Nosso Compromisso",
-              d: "Execução limpa, prazos claros, acompanhamento direto do início ao fim e materiais que garantem a durabilidade da obra.",
+              d: "Qualidade, segurança e eficiência em cada projeto — garantindo durabilidade, acabamento profissional e satisfação total do cliente do início ao fim da execução.",
             },
             {
               icon: Users,
               t: "Quem Atendemos",
-              d: "Construtoras, engenheiros, arquitetos, condomínios, comércios, indústrias e proprietários de imóveis em Sorocaba e toda a região.",
+              d: "Construtoras, engenheiros, arquitetos, condomínios, comércios, indústrias e proprietários de imóveis em Sorocaba, região e todo o Estado de São Paulo.",
             },
           ].map(({ icon: Icon, t, d }) => (
             <div
