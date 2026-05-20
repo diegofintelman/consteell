@@ -225,3 +225,28 @@ function FaqItem({ q, a }: { q: string; a: string }) {
     </div>
   );
 }
+
+function ImageCarousel({ images, alt }: { images: string[]; alt: string }) {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const id = setInterval(() => setIdx((i) => (i + 1) % images.length), 3500);
+    return () => clearInterval(id);
+  }, [images.length]);
+  return (
+    <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#111827]">
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={`${alt} ${i + 1}`}
+          loading="lazy"
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            i === idx ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a]/60 via-transparent to-transparent" />
+    </div>
+  );
+}
