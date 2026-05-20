@@ -2,6 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { CtaWhatsapp } from "@/components/CtaWhatsapp";
 import { Palette, Shield, Sparkles, Building2 } from "lucide-react";
+import foto1 from "@/assets/fachadas/foto-1.jpg";
+import foto2 from "@/assets/fachadas/foto-2.jpg";
+import foto3 from "@/assets/fachadas/foto-3.jpg";
+import foto4 from "@/assets/fachadas/foto-4.jpg";
+import foto5 from "@/assets/fachadas/foto-5.jpg";
+
+const galleryImages = [foto1, foto2, foto3, foto4, foto5];
 
 const SITE_URL = "https://consteell.lovable.app";
 
@@ -47,7 +54,7 @@ function FachadasPage() {
       </section>
 
       <section className="bg-[#111827] py-20">
-        <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
           {[
             {
               icon: Palette,
@@ -72,16 +79,50 @@ function FachadasPage() {
           ].map(({ icon: Icon, t, d }) => (
             <div
               key={t}
-              className="border border-[#2d3748] bg-[#0a0e1a] p-8 transition-all hover:border-[#c8d0dc]/40 hover:bg-card-hover"
+              className="border border-[#2d3748] bg-[#0a0e1a] p-7 transition-all hover:border-[#c8d0dc]/40 hover:bg-card-hover"
             >
-              <Icon className="h-10 w-10 text-[#c8d0dc]" />
-              <h3 className="mt-5 font-display text-xl font-bold uppercase tracking-wider text-white">
+              <Icon className="h-9 w-9 text-[#c8d0dc]" />
+              <h3 className="mt-5 font-display text-lg font-bold uppercase tracking-wider text-white">
                 {t}
               </h3>
               <div className="mt-3 h-px w-10 bg-[#c8d0dc]/40" />
               <p className="mt-4 text-sm leading-relaxed text-gray-400">{d}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 lg:mt-20">
+          <div className="mx-auto mb-10 max-w-7xl px-5 lg:px-8">
+            <h2 className="font-display text-2xl font-bold uppercase tracking-wide text-steel-gradient md:text-3xl">
+              Obras Realizadas
+            </h2>
+            <div className="divider-steel mt-4 w-20" />
+          </div>
+          <div
+            className="group relative overflow-hidden"
+            style={{
+              maskImage:
+                "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+              WebkitMaskImage:
+                "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
+            }}
+          >
+            <div className="flex w-max animate-marquee gap-5 group-hover:[animation-play-state:paused]">
+              {[...galleryImages, ...galleryImages].map((src, i) => (
+                <div
+                  key={i}
+                  className="relative h-64 w-80 shrink-0 overflow-hidden border border-[#2d3748] bg-[#0a0e1a] md:h-72 md:w-96"
+                >
+                  <img
+                    src={src}
+                    alt={`Fachada Consteell ${(i % galleryImages.length) + 1}`}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
