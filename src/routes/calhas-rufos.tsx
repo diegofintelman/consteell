@@ -2,6 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { CtaWhatsapp } from "@/components/CtaWhatsapp";
 import { Waves, Shield, ArrowDown, GitBranch, Check } from "lucide-react";
+import foto1 from "@/assets/calhas-rufos/foto-1.jpg";
+import foto2 from "@/assets/calhas-rufos/foto-2.jpg";
+import foto3 from "@/assets/calhas-rufos/foto-3.jpg";
+import foto4 from "@/assets/calhas-rufos/foto-4.jpg";
+import foto5 from "@/assets/calhas-rufos/foto-5.jpg";
+import foto6 from "@/assets/calhas-rufos/foto-6.jpg";
+import foto7 from "@/assets/calhas-rufos/foto-7.jpg";
+
+const galleryImages = [foto1, foto2, foto3, foto4, foto5, foto6, foto7];
 
 const SITE_URL = "https://consteell.lovable.app";
 
