@@ -1,6 +1,7 @@
 # robots.txt para Consteell
 
 User-agent: *
+Content-Signal: search=yes, ai-train=no, ai-input=yes
 Allow: /
 
 # Diretivas de Crawlers de IA (IA Search Bots e LLMs)

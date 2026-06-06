@@ -2,6 +2,37 @@ export default async function middleware(request: Request) {
   const url = new URL(request.url);
   const accept = request.headers.get("accept") || "";
 
+  // Tratar caminhos especiais do /.well-known/ para otimizar auditorias de IA
+  if (url.pathname.startsWith("/.well-known/")) {
+    if (url.pathname === "/.well-known/api-catalog") {
+      return new Response(JSON.stringify({ linkset: [] }), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/linkset+json; charset=utf-8",
+        },
+      });
+    }
+
+    if (
+      url.pathname === "/.well-known/openid-configuration" ||
+      url.pathname === "/.well-known/oauth-authorization-server" ||
+      url.pathname === "/.well-known/oauth-protected-resource"
+    ) {
+      return new Response(
+        JSON.stringify({
+          error: "not_supported",
+          message: "This site does not offer APIs or OAuth authentication.",
+        }),
+        {
+          status: 404,
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+          },
+        }
+      );
+    }
+  }
+
   // Se o agente solicitar explicitamente Markdown
   if (accept.includes("text/markdown")) {
     const origin = url.origin;
