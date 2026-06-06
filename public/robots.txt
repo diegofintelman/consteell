@@ -1,0 +1,38 @@
+# robots.txt para Consteell
+
+User-agent: *
+Allow: /
+
+# Diretivas de Crawlers de IA (IA Search Bots e LLMs)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Cohere-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# Localização do Sitemap e llms.txt
+Sitemap: https://www.consteell.com.br/sitemap.xml
