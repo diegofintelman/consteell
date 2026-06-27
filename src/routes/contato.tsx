@@ -64,7 +64,7 @@ Cidade: ${form.cidade}
 Serviço: ${form.servico}
 Solicitação: ${form.mensagem}`,
     );
-    window.location.href = `https://wa.me/5515998151587?text=${text}`;
+    window.location.href = `https://wa.me/5515997738668?text=${text}`;
   };
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -196,20 +196,20 @@ Solicitação: ${form.mensagem}`,
             <ContactCard
               icon={MessageCircle}
               label="WhatsApp"
-              value="(15) 99815-1587"
-              href="https://wa.me/5515998151587?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento."
+              value="(15) 99773-8668"
+              href="https://wa.me/5515997738668?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento."
             />
             <ContactCard
               icon={Phone}
               label="Telefone"
-              value="(15) 99815-1587"
-              href="tel:+5515998151587"
+              value="(15) 99773-8668"
+              href="tel:+5515997738668"
             />
             <ContactCard
               icon={Instagram}
               label="Instagram"
-              value="@consteell_"
-              href="https://www.instagram.com/consteell_/"
+              value="@consteell__"
+              href="https://www.instagram.com/consteell__/"
             />
             <ContactCard
               icon={MapPin}

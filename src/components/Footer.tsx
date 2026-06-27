@@ -59,16 +59,16 @@ export function Footer() {
             <ul className="mt-5 space-y-3 text-sm text-gray-400">
               <li>
                 <a
-                  href="tel:+5515998151587"
+                  href="tel:+5515997738668"
                   className="flex items-center gap-3 transition-colors hover:text-[#c8d0dc]"
                 >
                   <Phone className="h-4 w-4 text-[#c8d0dc]" />
-                  (15) 99815-1587
+                  (15) 99773-8668
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/5515998151587?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento."
+                  href="https://wa.me/5515997738668?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 transition-colors hover:text-[#c8d0dc]"
@@ -83,13 +83,13 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/consteell_/"
+                  href="https://www.instagram.com/consteell__/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 transition-colors hover:text-[#c8d0dc]"
                 >
                   <Instagram className="h-4 w-4 text-[#c8d0dc]" />
-                  @consteell_
+                  @consteell__
                 </a>
               </li>
             </ul>
