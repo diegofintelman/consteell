@@ -115,6 +115,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "Consteell" },
       { name: "theme-color", content: "#0a0e1a" },
       { name: "robots", content: "index, follow" },
+      { name: "facebook-domain-verification", content: "kvkyt592mxi6ksxy0oxqy1jfn1dixu" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Consteell" },
       { property: "og:title", content: "Consteell | Steel Frame, Calhas, Rufos e Fachadas — Sorocaba/SP" },
