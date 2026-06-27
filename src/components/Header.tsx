@@ -117,7 +117,7 @@ export function Header() {
             ))}
             <li className="pt-6">
               <a
-                href="https://wa.me/5515998151587?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento."
+                href="https://wa.me/5515997738668?text=Ol%C3%A1%2C%20vim%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-white px-5 py-4 text-sm font-bold uppercase tracking-[0.18em] text-[#0a0e1a]"

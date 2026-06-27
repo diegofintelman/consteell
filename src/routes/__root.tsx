@@ -21,9 +21,9 @@ const jsonLd = {
   name: "Consteell",
   description:
     "Especialista em telhado em steel frame, estruturas galvanizadas, calhas, rufos e fachadas.",
-  telephone: "+5515998151587",
+  telephone: "+5515997738668",
   url: SITE_URL,
-  sameAs: ["https://www.instagram.com/consteell_/"],
+  sameAs: ["https://www.instagram.com/consteell__/"],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Sorocaba",

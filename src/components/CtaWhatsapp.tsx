@@ -76,7 +76,7 @@ export function CtaWhatsapp({
       `Endereço do serviço: ${endereco}`;
     setTimeout(() => {
       window.open(
-        `https://wa.me/5515998151587?text=${encodeURIComponent(msg)}`,
+        `https://wa.me/5515997738668?text=${encodeURIComponent(msg)}`,
         "_blank",
         "noopener,noreferrer",
       );
