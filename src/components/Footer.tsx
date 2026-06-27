@@ -89,7 +89,7 @@ export function Footer() {
                   className="flex items-center gap-3 transition-colors hover:text-[#c8d0dc]"
                 >
                   <Instagram className="h-4 w-4 text-[#c8d0dc]" />
-                  @consteell__/
+                  @consteell__
                 </a>
               </li>
             </ul>

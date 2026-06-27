@@ -208,7 +208,7 @@ Solicitação: ${form.mensagem}`,
             <ContactCard
               icon={Instagram}
               label="Instagram"
-              value="@consteell__/"
+              value="@consteell__"
               href="https://www.instagram.com/consteell__/"
             />
             <ContactCard
